@@ -106,8 +106,10 @@ modify_bundle_id() {
 
 # 重新签名应用
 resign_app() {
-    echo -e "${YELLOW}正在重新签名 WeChat2.app...${NC}"
+    echo -e "${YELLOW}正在清除扩展属性（xattr）...${NC}"
+    sudo xattr -cr "$WECHAT2_APP"
     
+    echo -e "${YELLOW}正在重新签名 WeChat2.app...${NC}"
     sudo codesign --force --deep --sign - "$WECHAT2_APP"
     
     if [ $? -eq 0 ]; then

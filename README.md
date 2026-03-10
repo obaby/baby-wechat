@@ -143,6 +143,10 @@ pkill -f WeChat
 
 ## 📝 更新日志
 
+### v1.0.1 (2025-03-10)
+- 🐛 **修复** 重新签名失败问题：`resource fork, Finder information, or similar detritus not allowed`
+- 📌 在 codesign 之前增加 `xattr -cr` 清除扩展属性，解决复制应用时携带的 quarantine、Finder 元数据等导致签名失败的问题
+
 ### v1.0.0 (2025-08-14)
 - ✨ 初始版本发布
 - ✨ 支持微信双开功能
